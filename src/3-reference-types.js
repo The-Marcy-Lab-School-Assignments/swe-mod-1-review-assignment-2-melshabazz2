@@ -7,6 +7,7 @@ const team1 = {
 const team2 = team1;
 team2.wins = 50;
 team2.losses = 15;
+console.log(team1)
 
 /* 
 Part A: What will team1.wins and team1.losses be after this code runs? Write your prediction as a comment below:

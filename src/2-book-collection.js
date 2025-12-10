@@ -5,7 +5,14 @@ const bookInventory = {
   "The Vanishing Half": 4,
   "Between the World and Me": 1
 };
+const keyNames = ["The Bluest Eye", "Beloved", "Homegoing", "The Vanishing Half", "Between the World and Me"]
+const newKeys = {}
+for (let i = 0; i < keyNames.length; i++) {
+  const currentKey = keyNames[i]
+  newKeys[currentKey] = bookInventory[currentKey]
+}
 
+console.log(newKeys)
 // Part A: Use Object.keys() and a for loop to print each book and its availability in this format:
 // "The Bluest Eye: 3 copies available"
 // "Beloved: 5 copies available"
