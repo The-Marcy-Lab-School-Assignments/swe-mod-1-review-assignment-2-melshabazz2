@@ -22,18 +22,23 @@ console.log(playlist1.songCount);
 
 Part A: What will be logged to the console? Why?
 
-Part B: How would you modify the code so that reassigning `playlist2.songCount` does NOT affect `playlist1`.songCount? Write the corrected code below your response (we've provided the broken code again for you to fix).
+
+Part B: How would you modify the code so that reassigning `playlist2.songCount` does NOT affect `playlist1.songCount`? Write the corrected code below your response (we've provided the broken code again for you to fix). 
 
 ### Response 1
 
 Your response...
+- What would be logged is 15, the reason being is because ``playlist1`` points to a location in the computers memory that holds the data, when the code is executed you are not creating a new object but instead creating a new variable that points to the same location as ``playlist1``. So when you modify the object through ``playlist2.songCount`` you are changing the data stored in that location.
+
+
+- To modify the code so that reassigning `playlist2.songCount`does not affect `playlist1.songCount` you would use the spread operator to create a copy of the object and reassign the value inside of the copy to avoid modifying the original.
 
 **Corrected Code:**
 
 ```js
 // fix this!
 const playlist1 = { name: "My Favorites", songCount: 10 };
-const playlist2 = playlist1;
+const playlist2 = {...playlist1};
 playlist2.songCount = 15;
 console.log(playlist1.songCount);
 ```
@@ -61,6 +66,10 @@ For each task below, identify which array method (forEach, filter, map, find, or
 ### Response 2
 
 Your response...
+- For question 1 I would use ``.filter()``
+- For question 2 I would use ``.find()``
+- For question 3 I would use ``.reduce()``
+- For question 4 I would use ``.map()``
 
 ---
 
@@ -83,6 +92,21 @@ console.log(upperCaseLetters);
 ### Response 3
 
 Your response...
+- The code throws an error because the ``capitalize`` function is being called immediately rather than passed as a callback function on the ``.map()`` method.
+
+- To fix it we would remove the parentheses when passing the function to ``.map()``. This passes a reference to the capatilize function as the callback and allows ``.map()`` to call it correctly for each element in the array.
+
+- Fixed Code:
+```js
+const letters = ['a', 'b', 'c', 'd'];
+const capitalize = (str) => str.toUpperCase();
+
+const upperCaseLetters = letters.map(capitalize);
+// Uncaught TypeError: Cannot read properties of undefined (reading 'toUpperCase')
+
+console.log(upperCaseLetters);
+```
+- To avoid this we'd have to remeber the rule for the array methods, if a function that takes only one argument is passed you just pass the function name.
 
 ---
 
@@ -112,3 +136,11 @@ const grandTotal = orders.reduce((sum, order) => {
 ### Response 4
 
 Your response...
+
+- Part A: The value is the sum of all the ``total`` properties in the orders array.
+
+- Part B: The ``0`` is the initial value of the sum parameter, its important because it sets the intial type and is the correct way for emptyt arrays.
+
+- The value of ``sum`` is ``0``.
+- The value of ``order`` is the first element in the ``orders`` array.
+- What gets returned is ``45``.

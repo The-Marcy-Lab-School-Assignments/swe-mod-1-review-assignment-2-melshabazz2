@@ -8,6 +8,6 @@ const cart = {
 delete cart.customerName
 cart.items = ["apples", "bananas", "cherries"]
 cart.itemCount = 3
-cart.totalPrice = 99.9
+cart.totalPrice = 99.99
 
 console.log(cart)
